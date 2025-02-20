@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logtest.webp" type="image/png">
+    <title>ShopEase</title>
+    <script>
+        // Fonction de validation de l'ID et du téléphone
+        function verif5() {
+            var tel = document.forms["f"]["tel"].value;
+            var pass = document.forms["f"]["pass"].value;
+            var errorAlert = document.getElementById("errorAlert");
+
+            // Expression régulière pour valider un numéro de téléphone à 8 chiffres
+            var telRegex = /^[0-9]{8}$/;
+
+            // Vérification du téléphone
+            if (!telRegex.test(tel)) {
+                // Afficher l'alerte d'erreur si le téléphone n'a pas 8 chiffres
+                errorAlert.style.display = "block";
+                return false; // Empêcher l'envoi du formulaire
+            } else {
+                // Cacher l'alerte si le téléphone est valide
+                errorAlert.style.display = "none";
+            }
+
+            // Aucun contrôle sur le mot de passe (aucune action à faire ici)
+
+            return true; // Soumettre le formulaire si le téléphone est valide
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-image {
+            width: 92%;
+            height: 500px;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: fadeInZoom 1.5s ease-out forwards;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .login-image:hover {
+            transform: scale(1.1);
+            filter: blur(2px);
+
+        }
+
+.login-right {
+    flex: 1;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.input-group label span {
+    color: #ff4d4d;
+}
+.kanit-regular {
+  font-family: "Kanit", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.forgot-password {
+    color: #3751ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    background-color: #a893a8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #9e809e;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    color: #888;
+    position: relative;
+}
+
+.divider:before, 
+.divider:after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: #ddd;
+    position: absolute;
+    top: 50%;
+    width: 40%;
+}
+
+.divider:before {
+    left: 0;
+}
+
+.divider:after {
+    right: 0;
+}
+
+.signup-link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.signup-link a {
+    color: #3751ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            display: none; /* Masqué par défaut */
+            animation: showAlert 3s forwards;
+        }
+
+        /* Animation de l'alerte d'erreur */
+        @keyframes showAlert {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+    </style>
+</head>
+<body class="kanit-regular">
+    <div class="login-container ">
+        <div class="login-left">
+            <img src="lm.png" alt="Illustration" class="login-image">
+        </div>
+        <form class="container mt-5 mb-5" name="f" onsubmit="return verif5()" action="loginvis.php" method="post">
+            <div class="login-right">
+                <h1 style="color: #002060;">Bienvenue sur ShopEase</h1>
+                <h2 style="color: #9988AA;">Se connecter</h2>
+                <div id="errorAlert" class="alert-error">
+                    <i class="fas fa-exclamation-circle"></i> Le téléphone doit contenir 8 chiffres.
+                </div>
+                <div class="login-form">
+                    <div class="input-group">
+                        <label for="username">Telephone <span>*</span></label>
+                        <input type="tel" class="form-control mt-2 kanit-regular" id="inputEmail3" name="tel" placeholder="N de Telephone">
+                    </div>
+                    <div class="input-group">
+                        <label for="username">Mot De Pass <span>*</span></label>
+                        <input type="password" class="form-control mt-2 kanit-regular" id="inputEmail3" name="pass" placeholder="********">
+                        <div class="forgot-password  container mt-2 text-end " style="margin-top: 8px; margin-left: 180px;">
+                            <a href="mot3.html" style="color: #3751ff;">Mot de passe oublié ?</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn kanit-regular">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </div>
+                <div class="divider">OU</div>
+                <p class="signup-link">
+                    Besoin d'un compte ? <a href="signvis.html" style="color: #9988AA;">Inscrivez-vous</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

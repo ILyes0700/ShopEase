@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase</title>
+    <link rel="stylesheet" href="medfind.css">
+    <link rel="icon" href="logtest.webp" type="image/webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"> <!-- Updated Font Awesome Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+        
+    <style>
+        .kanit-regular {
+            font-family: "Kanit", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .navbar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar img:hover {
+            transform: rotate(360deg);
+        }
+        body {
+
+            background-color: #f7f7f7;
+        }
+        /* Navbar Styles */
+        nav {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f7f7f7;
+        }
+        nav .navbar-brand {
+            font-size: 30px;
+            color: #002060;
+        }
+        nav .nav-link {
+            color: #75b1da;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        /* Form Section */
+        section.container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .input-group-text {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #3498db;
+            border-color: #3498db;
+            border-radius: 8px;
+            font-size: 16px;
+            padding: 12px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+            border-radius: 8px;
+            font-size: 16px;
+            padding: 12px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer-text {
+            color: #b0b0b0;
+            font-size: 14px;
+            padding-top: 75px;
+        }
+
+        .footer-text strong {
+            color: #002060;
+        }
+
+        /* Icon styles for inputs */
+        .input-icon {
+            position: absolute;
+            top: -18px;
+            left: -25px;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        .alert-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            width: 300px;
+        }
+    
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+    
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+    
+        .alert .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .input-group:hover .input-icon {
+            color: #3498db;
+        }
+        .ff{
+            color: red;
+        }
+        .form-control {
+            padding-left: 40px;
+            transition: padding-left 0.3s ease;
+        }
+
+        /* Hover effect for the form input */
+        .input-group:hover .form-control {
+            padding-left: 45px;
+        }
+        form{
+            padding-left: 20px;
+        }
+        
+
+    </style>
+</head>
+
+<body class="kanit-regular">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="pharm.html">
+                <img src="logtest.webp" alt="Logo ShopEase" class="me-2" style="width: 40px; height: 40px; border-radius:50%;">
+                <h3 class="mb-0">ShopEase</h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="monphar.html">
+                            <i class="fas fa-lock me-2" style="font-size: 1.25rem;"></i>
+                            <span>Le Coffre-Fort</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="modifie-supprime.php">
+                            <i class="fas fa-edit me-2" style="font-size: 1.25rem;"></i>
+                            <span>Modification de produit</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <section class="container py-5 mt-5 pl-5">
+        <form action="med.php" method="post" name="f" onsubmit="return med1()" enctype="multipart/form-data">
+            <div class="row gy-3 mt-5">
+                <div class="col-12 col-md-6">
+                    <label for="id" class="form-label">ID <span class="ff">*</span> </label>
+                    <div class="input-group">
+                        <i class="fas fa-id-badge input-icon"></i>
+                        <input type="text" class="form-control" name="id" id="id" placeholder="Votre ID envoyé par email" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="nom" class="form-label">Nom de Produit <span class="ff">*</span></label>
+                    <div class="input-group">
+                        <i class='fas fa-box input-icon'></i>
+                        <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom du Produit" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="taille" class="form-label">Taille disponible <span class="ff"></span></label>
+                    <div class="input-group">
+                        <i class="fas fa-tshirt input-icon"></i>
+                        <div id="taille-container" class="size-container">
+                            <div class="size-circle">
+                                <input type="text" class="form-control size-input" name="taille[]" placeholder="Taille">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" id="add-size-btn">+</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="qun" class="form-label">Quantité <span class="ff">*</span></label>
+                    <div class="input-group">
+                        <i class='fas fa-box input-icon'></i>
+                        <input type="number" class="form-control" name="qun" id="qun" placeholder="" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="imagee" class="form-label">Image de Produit <span class="ff">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-image input-icon"></i>
+                        <input type="file" name="imagee" id="imagee" class="form-control" accept=".jpg, .jpeg, .png, .gif, .webp" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="videoe" class="form-label">Vidéo de Produit</label>
+                    <div class="input-group">
+                        <i class="fas fa-video input-icon"></i>
+                        <input type="file" name="videoe" id="videoe" class="form-control" accept=".mp4, .mov, .avi, .mkv, .webm">
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6">
+                    <label for="prix" class="form-label">Prix <span class="ff">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-dollar-sign input-icon"></i>
+                        <input type="text" class="form-control" name="prix" id="prix" placeholder="Prix  Exemple 3.500" required>
+                        <span class="input-group-text">TND</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="disc" class="form-label">Description sur produit <span class="ff">*</span></label>
+                    <textarea class="form-control" name="disc" id="disc" rows="3" placeholder="Obligatoire" required></textarea>
+                </div>
+    
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary me-3">Ajouter</button>
+                    <button type="reset" class="btn btn-danger">Annuler</button>
+                </div>
+            </div>
+        </form>
+    
+        <!-- Alertes personnalisées -->
+        <div id="alertContainer" class="alert-container" style="display:none;">
+            <div id="alertMessage" class="alert alert-danger">
+                <span id="alertText"></span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Styles CSS -->
+    <style>
+        .size-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+    
+        .size-circle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            border: 2px solid #3498db; /* Border couleur verte */
+            overflow: hidden;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            transition: all 0.3s ease-in-out;
+        }
+    
+        .size-circle:hover {
+            transform: scale(1.1);
+            border-color: #0d83d1; /* Green border darker on hover */
+        }
+    
+        .size-input {
+            border: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 14px;
+            padding: 0;
+            outline: none;
+        }
+    
+        .size-input::placeholder {
+            color: #888;
+        }
+    
+        #add-size-btn {
+            margin-left: 10px;
+            padding: 10px;
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ff5757;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        #add-size-btn:hover {
+            background-color: #ff3131;
+            transform: scale(1.1);
+        }
+    
+        #add-size-btn:active {
+            transform: scale(0.95); /* Légère réduction lors du clic */
+        }
+    
+        .size-circle input {
+            height: 100%;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 50%;
+        }
+    </style>
+    
+    <!-- Script JS -->
+    <script>
+        function med1() {
+        // Récupérer les valeurs du formulaire
+        let id = document.getElementById('id').value;
+        let prix = document.getElementById('prix').value;
+        let qun = document.getElementById('qun').value;
+        let disc = document.getElementById('disc').value;
+
+        // Validation de l'ID (6 chiffres)
+        if (!/^\d{6}$/.test(id)) {
+            showAlert("L'ID doit être composé de 6 chiffres.");
+            return false;
+        }
+
+        // Validation du prix (doit être un nombre)
+        if (isNaN(prix) || prix <= 0) {
+            showAlert("Le prix doit être un nombre positif.");
+            return false;
+        }
+
+        if(isNaN(qun) || qun <= 0){
+            showAlert("Le quantite doit être un nombre positif.");
+            return false;
+        }
+        if(disc==""){
+            showAlert("Le discription obligatoir.");
+            return false;
+        }
+        // Si toutes les validations passent, retourner true
+        return true;
+    }
+
+    // Affichage de l'alerte
+    function showAlert(message) {
+        document.getElementById('alertText').textContent = message;
+        document.getElementById('alertContainer').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('alertContainer').style.display = 'none';
+        }, 5000);
+    }
+        document.getElementById('add-size-btn').addEventListener('click', function() {
+            const sizeContainer = document.getElementById('taille-container');
+            const newSize = document.createElement('div');
+            newSize.classList.add('size-circle');
+            newSize.innerHTML = '<input type="text" class="form-control size-input" name="taille[]" placeholder="Taille" required>';
+            sizeContainer.appendChild(newSize);
+        });
+        function med1() {
+            // Validation de l'ID
+            const id = document.getElementById('id').value;
+            const idRegex = /^[0-9]{6}$/; // ID doit être un nombre à 6 chiffres
+            if (!idRegex.test(id) || id < 1) {
+                alert("L'ID doit être un nombre à 6 chiffres et supérieur ou égal à 1.");
+                return false;
+            }
+        
+            // Validation de la quantité
+            const qun = document.getElementById('qun').value;
+            if (qun < 1) {
+                alert("La quantité doit être un nombre positif et supérieur ou égal à 1.");
+                return false;
+            }
+        
+            // Validation de l'image (obligatoire)
+            const imagee = document.getElementById('imagee').value;
+            if (imagee === "") {
+                alert("L'image du produit est obligatoire.");
+                return false;
+            }
+        
+            // Validation du nom du produit (obligatoire)
+            const nom = document.getElementById('nom').value;
+            if (nom === "") {
+                alert("Le nom du produit est obligatoire.");
+                return false;
+            }
+        
+            // Validation de la description (obligatoire)
+            const disc = document.getElementById('disc').value;
+            if (disc === "") {
+                alert("La description du produit est obligatoire.");
+                return false;
+            }
+        
+    
+            // Pas de validation nécessaire pour la vidéo si elle est optionnelle
+        
+            // Si tout est valide, soumettre le formulaire
+            return true;
+        }
+    </script>
+    
+    <!-- Footer -->
+    <div class="text-center mt-4">
+        <p class="footer-text">ShopEase &copy; 2024 | Designed by <strong>Ilyes</strong></p>
+    </div>
+</body>
+</html>

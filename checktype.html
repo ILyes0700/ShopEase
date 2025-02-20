@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="medfind.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logtest.webp" type="image/png">
+    <title>ShopEase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+
+    <style>
+         .kanit-regular {
+  font-family: "Kanit", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+        /* Animation de fade-in pour le body */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Style des cartes */
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre ajoutée */
+            transition: transform 0.4s ease, opacity 0.4s ease; /* Transition fluide */
+        }
+
+        /* Animation du tilt : effet de bascule sur l'image */
+        @keyframes tiltEffect {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.05) rotate(5deg); /* Agrandissement + légère rotation */
+            }
+            100% {
+                transform: scale(1) rotate(0deg); /* Retour à l'état initial */
+            }
+        }
+
+        /* Effet sur la carte pendant le survol */
+        .card:hover {
+            animation: tiltEffect 0.6s ease-out; /* Application de l'animation de bascule */
+            transform: scale(1.03); /* Zoom léger lors du survol */
+        }
+
+        /* Effet de glissement de l'image (Slide effect) */
+        .card:hover img {
+            animation: slideUp 0.5s ease-out; /* Effet de glissement vers le haut */
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Effet de mouvement pour les titres de cartes */
+        .image-title {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #333;
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards; /* Animation fluide pour l'apparition du titre */
+        }
+
+        /* Style pour le footer */
+        footer {
+            background-color: #d3f5d3;
+            padding: 30px 20px;
+            border-top: 2px solid #002060; /* Bordure ajoutée */
+        }
+
+        .footer .social-links img {
+            width: 40px;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer .social-links a:hover img {
+            transform: scale(1.1); /* Zoom sur les icônes */
+        }
+
+        /* Animation du bouton de retour vers le haut */
+        .footer .ic {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .footer .ic:hover {
+            transform: scale(1.2);
+        }
+
+        /* Animation du formulaire de recherche */
+        .hstack input[type="text"] {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hstack input[type="text"]:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style général */
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px); /* Effet de translation sur survol */
+        }
+        .navbar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar img:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top"  style=" box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); background-color: #f7f7f7;">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="logtest.webp" alt="Logo PharmFind" class="me-2" style="width: 40px; height: 40px; border-radius:50%;">
+            <h3 class="mb-0 kanit-regular" style=" font-size: 30px; color: #002060;">ShopEase</h3>
+          </a>
+        </div>
+      </nav>
+    <section class="mt-5 pt-5 kanit-regular mt-5" style="margin-left:0px; margin-top: 50px; margin-bottom: 50px;">
+        <div class="container pt-5">
+            <div class="row justify-content-center pt-5" style="gap: 20px;">
+                <div class="col-12 col-sm-6 col-lg-3 mb-4 pt-1">
+                    <div class="card">
+                        <a href="logphar.html">
+                            <img src="parten.png" alt="">
+                        </a>
+                        <div class="image-title">Entreprise</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 mb-4 pt-1">
+                    <div class="card">
+                        <a href="logliv.html">
+                            <img src="picc3.png" alt="">
+                        </a>
+                        <div class="image-title">Livraison</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 mb-4 pt-1">
+                    <div class="card">
+                        <a href="logvis.html">
+                            <img src="lm.png" alt="">
+                        </a>
+                        <div class="image-title">Visite</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center mt-4 kanit-regular">
+        <p class="footer-text" style="color: #b0b0b0; font-size: 14px; padding-top: 25px;">ShopEase &copy; 2024 | Designed by <strong>Ilyes</strong></p>
+    </div>
+</body>
+</html>

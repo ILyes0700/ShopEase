@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logtest.webp" type="image/png">
+    <title>ShopEase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .kanit-regular {
+  font-family: "Kanit", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: #fff;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            color: #666666;
+        }
+        .bc{
+            color:#3498db;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .message a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation for image */
+        .image-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 10%;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .az{
+            margin-left: 38px;
+        }
+        .cr{
+            color: #3b5e75;
+        }
+    </style>
+</head>
+<body class="kanit-regular">
+
+<div class="container">
+    <!-- Image icon -->
+    <div class="image-section">
+        <img src="motobl.svg" alt="Icone" />
+    </div>
+
+    <h3 class="bc">ID Oublié</h3>
+    <form action="mot2.php" method="POST" name="f">
+        <div class="input-group">
+            <label for="email" class="az cr"><div class="input-icon "><i class="fas fa-envelope"></i></div>Votre Email :</label>
+            <input type="email" class="kanit-regular" id="email" name="email" placeholder="Entreprise@gmail.com" required>
+        </div>
+        <div class="input-group">
+            <label for="phone" class="az cr"><div class="input-icon "><i class="fas fa-phone-alt"></i></div>Votre Numéro de Téléphone :</label>
+            <input type="tel" class="kanit-regular" id="phone" name="tel" placeholder="12345678" required>
+        </div>
+        <button type="submit" class="btn-submit kanit-regular">
+            <i class="fas fa-paper-plane"></i> Envoyer
+        </button>
+    </form>
+    <div class="message">
+        <p>Vous vous souvenez de votre mot de passe ? <a href="logphar.html">Se connecter</a></p>
+    </div>
+</div>
+
+</body>
+</html>
