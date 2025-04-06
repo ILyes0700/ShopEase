@@ -99,11 +99,11 @@ if ($rowCheck['email_sent'] == 0) {
         $mailPatient->isSMTP();
         $mailPatient->Host = 'smtp.gmail.com'; 
         $mailPatient->SMTPAuth = true; 
-        $mailPatient->Username = 'pharfind@gmail.com';
-        $mailPatient->Password = 'rfqdlvatmnuklgtb'; 
+        $mailPatient->Username = '';
+        $mailPatient->Password = ''; 
         $mailPatient->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
         $mailPatient->Port = 587;
-        $mailPatient->setFrom('pharfind@gmail.com', 'ShopEase');
+        $mailPatient->setFrom('', 'ShopEase');
         $mailPatient->addAddress($email); 
         $mailPatient->isHTML(true);
         $mailPatient->Subject = 'Confirmation de livraison';
@@ -305,13 +305,13 @@ if ($rowCheck['email_sent'] == 0) {
         $mailLivreur->isSMTP();
         $mailLivreur->Host = 'smtp.gmail.com';
         $mailLivreur->SMTPAuth = true;       
-        $mailLivreur->Username = 'pharfind@gmail.com';  
-        $mailLivreur->Password = 'rfqdlvatmnuklgtb';  // Utilisez le mot de passe d'application
+        $mailLivreur->Username = ;  
+        $mailLivreur->Password = '';  // Utilisez le mot de passe d'application
         $mailLivreur->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // Utilisation de TLS pour sécuriser la connexion
         $mailLivreur->Port = 587;  // Port utilisé par Gmail pour TLS
 
         // Informations de l'expéditeur et du destinataire
-        $mailLivreur->setFrom('pharfind@gmail.com', 'ShopEase');
+        $mailLivreur->setFrom('', 'ShopEase');
         $mailLivreur->addAddress($livreurEmail);  // L'adresse du livreur
 
         // Contenu de l'e-mail avec un joli tableau HTML pour le livreur
