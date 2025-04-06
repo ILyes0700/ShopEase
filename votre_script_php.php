@@ -17,13 +17,13 @@ if (isset($_POST['decline_order'])) {
         $mailPatient->isSMTP();
         $mailPatient->Host = 'smtp.gmail.com'; // Utilisation du serveur SMTP de Gmail
         $mailPatient->SMTPAuth = true;
-        $mailPatient->Username = 'pharfind@gmail.com';  // Votre adresse email Gmail
-        $mailPatient->Password = 'rfqdlvatmnuklgtb';  // Utilisez un mot de passe d'application sécurisé
+        $mailPatient->Username = '';  // Votre adresse email Gmail
+        $mailPatient->Password = '';  // Utilisez un mot de passe d'application sécurisé
         $mailPatient->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mailPatient->Port = 587;
 
         // Définir l'expéditeur et le destinataire
-        $mailPatient->setFrom('pharfind@gmail.com', 'PharmFind');
+        $mailPatient->setFrom('', 'PharmFind');
         $mailPatient->addAddress($emailPatient);  // L'adresse email du patient
 
         // Configuration de l'email HTML
