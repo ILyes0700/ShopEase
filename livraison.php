@@ -114,13 +114,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['send'])) {
                         $mail->isSMTP();
                         $mail->Host = 'smtp.gmail.com';
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'pharfind@gmail.com';  // Remplacez par votre adresse email Gmail
-                        $mail->Password = 'rfqdlvatmnuklgtb';  // Utilisez le mot de passe d'application
+                        $mail->Username = '';  // Remplacez par votre adresse email Gmail
+                        $mail->Password = '';  // Utilisez le mot de passe d'application
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
 
                         // Informations de l'expéditeur et du destinataire
-                        $mail->setFrom('pharfind@gmail.com', 'ShopEase');
+                        $mail->setFrom('', 'ShopEase');
                         $mail->addAddress($emailliv);
 
                         // Contenu de l'e-mail
