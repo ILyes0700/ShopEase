@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $mail->isSMTP();
                     $mail->Host = 'smtp.gmail.com';  // Utilisation du serveur SMTP de Gmail
                     $mail->SMTPAuth = true;          // Activation de l'authentification SMTP
-                    $mail->Username = 'pharfind@gmail.com';  // Remplacez par votre adresse e-mail Gmail
-                    $mail->Password = 'rfqdlvatmnuklgtb';  // Utilisez le mot de passe d'application
+                    $mail->Username = '';  // Remplacez par votre adresse e-mail Gmail
+                    $mail->Password = '';  // Utilisez le mot de passe d'application
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // Utilisation de TLS pour sécuriser la connexion
                     $mail->Port = 587;  // Port utilisé par Gmail pour TLS
     
                     // Informations de l'expéditeur et du destinataire
-                    $mail->setFrom('pharfind@gmail.com', 'ShopEase');
+                    $mail->setFrom('', 'ShopEase');
                     $mail->AddEmbeddedImage('logtest.webp', 'logo');
                     $mail->addAddress($email, $nom);  // Remplacez par l'adresse du pharmacien
                     // Contenu de l'e-mail
